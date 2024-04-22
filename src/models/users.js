@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
+const { sequelize } = require("../database");
 
-module.exports = {
+const users = sequelize.define(`users`, {
   id: {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
@@ -21,5 +22,11 @@ module.exports = {
   last_name: {
     type: Sequelize.STRING,
     allowNull: true
+  },
+  profile_picture: {
+    type: Sequelize.BLOB,
+    allowNull: true
   }
-};
+});
+
+module.exports = users;
